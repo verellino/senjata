@@ -16,9 +16,7 @@
         <th>Kondisi</th>
         <th>Jumlah</th>
         <th>Jenis</th>
-        <th>Tgl. Regis</th>
-        <th>Ruang</th>
-        <th>Petugas</th>
+        <th>Taruna</th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -31,8 +29,6 @@
         <td><?= $senjata['kondisi']; ?>
         <td><?= $senjata['jumlah']; ?>
         <td><?= $senjata['jenis']; ?>
-        <td><?= $senjata['tgl_regis']; ?>
-        <td><?= $senjata['ruang']; ?>
         <td><?= $senjata['nama']; ?>
         <td>
           <div class="d-inline">

@@ -1,20 +1,20 @@
 <div class="container mt-5">
  <div class="card">
   <div class="card-header">
-   Petugas : <?= $_SESSION['nama'] ?>
+   Petugas : <?= $_SESSION['name'] ?>
   </div>
   <div class="card-body">
    <div class="row">
     <div class="col-md-6">
      <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="mt-3" autocomplete="off">
       <div class="form-group">
-       <label for="id_barang">Nama Senjata</label>
+       <label for="id_barang">Nomor Senjata</label>
        <input list="barang" name="nama_barang" placeholder="Pilih barang" class="form-control" required>
        <datalist id="barang">
    
         <?php 
-        foreach ($data_barang as $senjata): 
-         $daftar = $senjata['nama_barang'].' - '.$senjata['jenis'];
+        foreach ($data_barang as $barang): 
+         $daftar = $barang['nama_barang'].' - '.$barang['jenis'];
         ?>
    
         <option value="<?= $daftar ?>">
@@ -24,13 +24,14 @@
        </select>
       </div>
       <div class="form-group">
-       <label for="jumlah_barang">Jumlah Ambil</label>
-       <input type="number" name="jumlah_pinjam" placeholder="Jumlah Senjata" min="1" max="1000" class="form-control" required>
+       <label for="jumlah_barang">Jumlah Pinjam</label>
+       <input type="number" name="jumlah_pinjam" placeholder="Jumlah Barang" min="1" max="1000" class="form-control" required>
       </div>
       <button type="submit" class="btn btn-primary float-right">Input Transaksi</button>
       <div class="clearfix"></div>
      </form>
     </div>
+    
     <div class="col-md-6">
      <h3>Data Peminjaman</h3>
 
@@ -43,8 +44,8 @@
       $jumlah_pinjam  = $_POST['jumlah_pinjam'];
       $id_user   = $_SESSION['id_user'];
 
-      $senjata = $conn->query("SELECT * FROM senjata WHERE nama_barang='".$nama_barang_exploded."'");
-      $data_barang  = $senjata->fetch_array();
+      $barang = $conn->query("SELECT * FROM barang WHERE nama_barang='".$nama_barang_exploded."'");
+      $data_barang  = $barang->fetch_array();
 
       if(!isset($_SESSION['list_peminjaman'])) {
        $_SESSION['list_peminjaman'] = [];
@@ -85,8 +86,8 @@
 
       <table class="table table-bordered">
        <tr align="center">
-        <th>Nama Senjata</th>
-        <th>Jumlah pengambilan</th>
+        <th>Nama barang</th>
+        <th>Jumlah pinjam</th>
         <th>Aksi</th>
        </tr>
         

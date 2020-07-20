@@ -11,7 +11,7 @@
           ?>
 
           <h5 class="card-title">Data Pengambilan</h5>
-          <p class="card-text">Data senjata yang diambil</p>
+          <p class="card-text">Data Senjata yang diambil</p>
           <h4><?= $peminjaman['jumlah']; ?></h4>
           <a href="#" class="card-link">Lihat Data Pengambilan</a>
         </div>
@@ -38,14 +38,14 @@
         <div class="card-body">
  
           <?php 
-          $sql = $conn->query("SELECT COUNT(*) AS jmlOpt FROM users WHERE id_level = 1");
+          $sql = $conn->query("SELECT COUNT(*) AS jmlOpt FROM users WHERE id_level = 2");
           $opt = $sql->fetch_assoc();
           ?>
 
-          <h5 class="card-title">Data Petugas</h5>
-          <p class="card-text">Jumlah petugas saat ini</p>
+          <h5 class="card-title">Data Taruna</h5>
+          <p class="card-text">Jumlah Taruna saat ini</p>
           <h3><?= $opt['jmlOpt']; ?></h3>
-          <a href="#" class="card-link">Lihat Data Petugas</a>
+          <a href="#" class="card-link">Lihat Data Taruna</a>
         </div>
       </div>
     </div>

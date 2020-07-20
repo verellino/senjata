@@ -18,9 +18,9 @@
    </div>
    <div class="card-body">
      <p>Jenis Senjata : <?= $data['jenis'] ?></p>
+     <p>Nomor Senjata : <?= $data['nomor_senjata'] ?></p>
+     <p>Taruna : <?= $data['nama'] ?></p>
      <p>Jumlah : <?= $data['jumlah'] ?></p>
-     <p>Kondisi : <?= $data['kondisi'] ?></p>
-     <p>Petugas : <?= $data['nama'] ?></p>
    </div>
  </div>
 
