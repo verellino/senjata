@@ -4,7 +4,7 @@
   <hr>
 
   <a href="index.php" class="btn btn-primary btn-sm float-left">← Kembali</a>
-  <a href="?h=tambah-petugas" class="btn btn-primary btn-sm float-right">Tambah taruna</a>
+  <a href="?p=tambah-petugas" class="btn btn-primary btn-sm float-right">Tambah taruna</a>
   <div class="clearfix"></div>
 
   <table class="table table-sm mt-3">
@@ -12,32 +12,30 @@
       <tr>
  <th>No</th>
  <th>Nama Taruna</th>
- <th>Username</th>
- <th>Password</th>
- <th>Sebagai</th>
+ <th>Pangkat</th>
+ <th>No. AK</th>
+ <th>No. Senjata</th>
  <th>Aksi</th>
       </tr>
     </thead>
     <tbody>
       <?php 
       foreach ($data as $r): 
-      $r['id_level'] == 1 ? $sebagai = "Admin" : $sebagai = "Operator"; 
       ?>
-
-      <tr>
- <td><?= $no++ ?></td>
- <td><?= $r['nama'] ?></td>
- <td><?= $r['username'] ?></td>
- <td><?= $r['password'] ?></td>
- <td><?= $sebagai ?></td>
-        <td>
-          <div class="d-inline">
-     <a href="?h=detail-petugas&id=<?= $r['id_user'] ?>" class="btn btn-primary btn-sm">Detail</a>
-     <a href="?h=edit-petugas&id=<?= $r['id_user'] ?>" class="btn btn-success btn-sm">Edit</a>
-     <a href="?h=hapus-petugas&id=<?= $r['id_user'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data ini?')">Hapus</a>
-     </div>
+<tr>
+ <td><?= $r['id_user'] ?></td>
+ <td><?= $r['Name'] ?></td>
+ <td><?= $r['Pangkat'] ?></td>
+ <td><?= $r['No_AK'] ?></td>
+ <td><?= $r['No_Senjata'] ?></td>
+  <td>
+    <div class="d-inline">
+     <a href="?p=detail-petugas&id=<?= $r['id_user'] ?>" class="btn btn-primary btn-sm">Detail</a>
+     <a href="?p=edit-petugas&id=<?= $r['id_user'] ?>" class="btn btn-success btn-sm">Edit</a>
+     <a href="?p=hapus-petugas&id=<?= $r['id_user'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data ini?')">Hapus</a>
+    </div>
  </td>
-      </tr>
+</tr>
       
       <?php endforeach ?>
     </tbody>

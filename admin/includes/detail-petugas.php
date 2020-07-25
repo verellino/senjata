@@ -5,14 +5,18 @@
  
   <a href="data-petugas.php" class="btn btn-primary btn-sm float-left">← Kembali</a>
   <div class="clearfix"></div>
-
+  <?php 
+   $sql = $conn->query("SELECT * FROM taruna WHERE id_user = '".$_GET['id']."'");
+   $data = $sql->fetch_assoc();
+ ?>
   <div class="card mt-3">
     <div class="card-header">
-      <?= $data['nama'] ?>
+      <h2><?= $data['Name'] ?></h2>
     </div>
     <div class="card-body">
-      <p>Username : <?= $data['username'] ?></p>
-      <p>Sebagai : <?= $sebagai ?></p>
+      <p>Pangkat : <?= $data['Pangkat'] ?></p>
+      <p>Nomor Akademi : <?= $data['No_AK'] ?></p>
+      <p>Nomor Senjata : <?= $data['No_Senjata'] ?></p>
     </div>
   </div>
 

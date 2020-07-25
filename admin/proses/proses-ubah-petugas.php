@@ -6,13 +6,13 @@ if (!isset($_SESSION['id_user'])) {
   header('Location: ../../index.php');
 }
 
-$nama  = $_POST['nama'];
-$username = $_POST['username'];
-$sebagai = $_POST['sebagai'];
-$sebagai == "Operator" ? $sebagai = 2 : $sebagai = 1;
+$name = $_POST['Name'];
+$pangkat = $_POST['Pangkat'];
+$no_ak = $_POST['No_AK'];
+$no_senjata = $_POST['No_Senjata'];
 $id = $_POST['id'];
 
-$update = $conn->query("UPDATE users SET nama = '$nama', username = '$username', id_level = '$sebagai' WHERE id_user = '".$id."'");
+$update = $conn->query("UPDATE taruna SET `id_user`= '',`Name`='$name',`Pangkat`='$pangkat',`No_AK`='$no_ak',`No_Senjata`= 'no_senjata' WHERE id_user = '".$id."'");
 
 if ($update) {
   header('Location: ../data-petugas.php');

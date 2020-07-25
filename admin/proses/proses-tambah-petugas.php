@@ -6,17 +6,16 @@ if (!isset($_SESSION['id_user'])) {
   header('Location: ../../index.php');
 }
 
-$nama = $_POST['nama'];
-$username = $_POST['username'];
-$password = sha1($_POST['password']);
-$sebagai = $_POST['sebagai'];
-$sebagai == "Operator" ? $sebagai = 2 : 0;
+$name = $_POST['nama'];
+$pangkat = $_POST['pangkat'];
+$no_ak = $_POST['no_ak'];
+$no_senjata = $_POST['no_senjata'];
 
-if (!isset($nama, $username, $password, $sebagai)) {
+if (!isset($name, $pangkat, $no_ak, $no_senjata)) {
   header('Location: ../petugas.php?h=tambah-petugas');
 }
 
-$sql = "INSERT INTO users VALUES ('', '$nama', '$username', '$password', '$sebagai')";
+$sql = "INSERT INTO taruna VALUES ('', '$name', '$pangkat', '$no_ak', '$no_senjata')";
 $query = $conn->query($sql);
 
 if ($query) {

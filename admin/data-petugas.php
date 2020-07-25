@@ -7,7 +7,7 @@ if (!isset($_SESSION['id_user'])) {
 }
 
 // ambil data
-$sql = $conn->query("SELECT * FROM users");
+$sql = $conn->query("SELECT * FROM taruna");
 $data = $sql->fetch_all(MYSQLI_ASSOC);
 // Nomor untuk increment baris tabel
 $no = 1;
@@ -25,7 +25,7 @@ if (!isset($_GET['p'])) {
     require_once 'includes/'.$_GET['p'].'.php'; 
   } else if ($_GET['p'] == 'hapus-petugas') {
    
-    $hapus = $conn->query("DELETE * FROM users WHERE id_user='".$_GET['id']."'");
+    $hapus = $conn->query("DELETE * FROM taruna WHERE id_user='".$_GET['id']."'");
     if ($hapus) {
       header('Location: data-petugas.php');
     } else {

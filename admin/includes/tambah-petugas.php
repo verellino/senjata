@@ -12,16 +12,16 @@
       <input type="text" name="nama" placeholder="Nama Petugas" class="form-control" autofocus required>
     </div>
     <div class="form-group">
-      <label for="password">Username</label>
-      <input type="text" name="username" placeholder="Masukan Username" class="form-control" required>
+      <label for="pangkat">Pangkat</label>
+      <input type="text" name="pangkat" placeholder="Masukan Pangkat" class="form-control" required>
     </div>
     <div class="form-group">
-      <label for="password">Password</label>
-      <input type="text" name="password" placeholder="Masukan Password" class="form-control" required>
+      <label for="no_ak">No AK</label>
+      <input type="text" name="no_ak" placeholder="Masukan Nomor Akademi" class="form-control" required>
     </div>
     <div class="form-group">
-      <label for="sebagai">Sebagai</label>
-      <input type="text" name="sebagai" value="Operator" class="form-control" required readonly>
+      <label for="no_senjata">No Senjata</label>
+      <input type="text" name="no_senjata" placeholder="Masukan Nomor Senjata" class="form-control" required>
     </div>
     <button type="submit" class="btn btn-primary float-right">Tambah Anggota</button>
   </form>
