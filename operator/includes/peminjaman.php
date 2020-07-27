@@ -9,12 +9,12 @@
      <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="mt-3" autocomplete="off">
       <div class="form-group">
        <label for="id_barang">Nomor Senjata</label>
-       <input list="barang" name="nama_barang" placeholder="Pilih barang" class="form-control" required>
+       <input list="barang" name="nomor_senjata" placeholder="Pilih Nomor Senjata" class="form-control" required>
        <datalist id="barang">
    
         <?php 
         foreach ($data_barang as $barang): 
-         $daftar = $barang['nama_barang'].' - '.$barang['jenis'];
+         $daftar = $barang['nomor_senjata'];
         ?>
    
         <option value="<?= $daftar ?>">
@@ -22,10 +22,6 @@
         <?php endforeach ?>
    
        </select>
-      </div>
-      <div class="form-group">
-       <label for="jumlah_barang">Jumlah Pinjam</label>
-       <input type="number" name="jumlah_pinjam" placeholder="Jumlah Barang" min="1" max="1000" class="form-control" required>
       </div>
       <button type="submit" class="btn btn-primary float-right">Input Transaksi</button>
       <div class="clearfix"></div>
@@ -36,15 +32,16 @@
      <h3>Data Peminjaman</h3>
 
      <?php 
-     if (isset($_POST['nama_barang'], $_POST['jumlah_pinjam'])) {
+     if (isset($_POST['nomor_senjata'])) {
       
-      $nama_barang = trim($_POST['nama_barang']);
-      $explode_nama_barang = explode("-", $nama_barang);
-      $nama_barang_exploded = $explode_nama_barang[0];
-      $jumlah_pinjam  = $_POST['jumlah_pinjam'];
+      $nomor_senjata = trim($_POST['nomor_senjata']);
+      $explode_nomor_senjata = explode("-", $nomor_senjata);
+      $nomor_senjata_exploded = $explode_nomor_senjata[0];
+      // $jumlah_pinjam  = $_POST['jumlah_pinjam'];
+      $status = $_POST['keterangan'];
       $id_user   = $_SESSION['id_user'];
 
-      $barang = $conn->query("SELECT * FROM barang WHERE nama_barang='".$nama_barang_exploded."'");
+      $barang = $conn->query("SELECT * FROM senjata WHERE nomor_senjata='".$nomor_senjata_exploded."'");
       $data_barang  = $barang->fetch_array();
 
       if(!isset($_SESSION['list_peminjaman'])) {
@@ -57,12 +54,12 @@
 
       // jika barang sudah ada di daftar list maka akan diupdate
       for ($i=0; $i<count($ls_pmj); $i++) {
-       if($ls_pmj[$i]['nama_barang'] == $nama_barang) {
+       if($ls_pmj[$i]['nomor_senjata'] == $nomor_senjata) {
         $index = $i;
-        if($jumlah_pinjam <= $data_barang['jumlah']) {
-         $_SESSION['list_peminjaman'][$i]['jumlah_pinjam'] = $jumlah_pinjam;
+        if($jumlah_pinjam <= $data_barang['keterangan']) {
+         $_SESSION['list_peminjaman'][$i]['keterangan'] = $status;
         } else {
-         echo '<div class="alert alert-danger" role="alert"><b>'.$nama_barang.'</b> hanya tersedia <b>'.$data_barang['jumlah'].'</b></div>';
+         echo '<div class="alert alert-danger" role="alert"><b>'.$nomor_senjata.'</b> hanya tersedia <b>'.$data_barang['keterangan'].'</b></div>';
         }
         break;
        }
@@ -70,13 +67,13 @@
 
       // jika list peminjaman kosong
       if($index == -1) {
-       if($data_barang['jumlah'] < $jumlah_pinjam) {
-        echo '<div class="alert alert-danger" role="alert"><b>'.$nama_barang.'</b> hanya tersedia <b>'.$data_barang['jumlah'].'</b></div>';
+       if($data_barang['status'] < $status) {
+        echo '<div class="alert alert-danger" role="alert"><b>'.$nomor_senjata.'</b> hanya tersedia <b>'.$data_barang['keterangan'].'</b></div>';
        } else {
         $_SESSION['list_peminjaman'][] = [
                        'id_barang' => $data_barang['id_barang'], 
-                       'nama_barang' => $nama_barang, 
-                       'jumlah_pinjam' => $jumlah_pinjam
+                       'nomor_senjata' => $nomor_senjata, 
+                       'status' => $status
                       ];
        }
       }
@@ -99,8 +96,8 @@
          ?>
 
          <tr>
-           <td><?php echo $list[$i]['nama_barang']; ?></td>
-           <td align="center"><?php echo $list[$i]['jumlah_pinjam']; ?></td>
+           <td><?php echo $list[$i]['nomor_senjata']; ?></td>
+           <td align="center"><?php echo $list[$i]['status']; ?></td>
            <td align="center">
             <a href="?index=<?php echo $index; ?>" onclick="return confirm('Anda yakin?')">Hapus</a>
            </td>
@@ -153,4 +150,4 @@
 <?php 
  if(isset($_GET["index"])){
   header('Location: index.php');
- }
+ } ?>

@@ -8,19 +8,21 @@
  <div class="clearfix"></div>
 
  <?php 
-   $sql = $conn->query("SELECT * FROM senjata INNER JOIN users WHERE id_barang = '".$_GET['id']."'");
+   $sql = $conn->query("SELECT * FROM taruna WHERE id_user = '".$_GET['id']."'");
    $data = $sql->fetch_assoc();
+   $item = $data['No_Senjata'];
  ?>
 
  <div class="card mt-3">
    <div class="card-header">
-     <?= $data['nama_barang'] ?>
+   <h3>Nomor Senjata : <?= $data['No_Senjata'] ?></h3>
    </div>
    <div class="card-body">
-     <p>Jenis Senjata : <?= $data['jenis'] ?></p>
-     <p>Jumlah : <?= $data['jumlah'] ?></p>
-     <p>Kondisi : <?= $data['kondisi'] ?></p>
-     <p>Petugas : <?= $data['nama'] ?></p>
+     <p>Taruna : <?= $data['Name'] ?></p>
+     <p>Pangkat : <?= $data['Pangkat'] ?></p>
+     <p>Nomor Akademi : <?= $data['No_AK'] ?></p>
+     <p>Nomor Senjata : <?= $data['No_Senjata'] ?></p>
+     <img alt="<?=$item?>" src="../library/barcode.php?text=<?=$item?>&print=true"/>
    </div>
  </div>
 

@@ -7,7 +7,7 @@ if (!isset($_SESSION['id_user'])) {
 }
 
 // Mengelurkan seluruh data barang yang ada di Database
-$sql = "SELECT * FROM senjata LEFT JOIN users ON senjata.id_user = users.id_user";
+$sql = "SELECT * FROM senjata LEFT JOIN taruna ON senjata.id_user = taruna.id_user";
 $query = $conn->query($sql);
 $data_barang = $query->fetch_all(MYSQLI_ASSOC);
 

@@ -17,10 +17,10 @@ $no = 1;
 
 require_once 'includes/header.php';
 
-if(!isset($_GET['act'])) {
+if(!isset($_GET['p'])) {
  require_once 'includes/detail-peminjaman.php';
 } else {
- if($_GET['act'] == 'cetak') {
+ if($_GET['p'] == 'cetak') {
   require_once 'includes/cetak-data-peminjaman.php';
  } else {
   require_once 'includes/detail-peminjaman.php';
