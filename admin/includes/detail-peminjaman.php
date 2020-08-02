@@ -28,7 +28,7 @@
 
    <tr>
     <td><?= $no++; ?></td>
-    <td><?= $data['nama_barang']; ?></td>
+    <td><?= $data['nomor_senjata']; ?></td>
     <td><?= $data['jenis']; ?></td>
     <td><?= $data['jumlah']; ?></td>
     <td><?= $data['tgl_pinjam']; ?></td>

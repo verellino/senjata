@@ -18,13 +18,13 @@
      <b>Aplikasi Inventaris</b>
     </li>
     <li class="nav-item">
-     <a class="nav-link" href="../operator/data-barang.php">Barang</a>
+     <a class="nav-link" href="../operator/data-barang.php">Daftar Senjata</a>
     </li>
     <li class="nav-item">
-     <a class="nav-link" href="../operator/index.php">Peminjaman</a>
+     <a class="nav-link" href="../operator/index.php">Ambil/Pengembalian</a>
     </li>
     <li class="nav-item">
-     <a class="nav-link" href="../operator/data-peminjaman.php">Data Peminjaman</a>
+     <a class="nav-link" href="../operator/data-peminjaman.php">Data Pengambilan</a>
     </li>
     <li class="nav-item">
      <a class="nav-link btn btn-danger btn-sm text-white" href="logout.php">Keluar</a>

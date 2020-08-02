@@ -4,27 +4,18 @@ $dt_pinjam = NULL;
 
 if(isset($_POST['submit']) && isset($_SESSION['list_peminjaman'])) {
  foreach ($_SESSION['list_peminjaman'] as $list) {
-  $explode = explode("-", $list['nama_barang']);
-  $nama_barang = trim($explode[0]);
-  $jenis = trim($explode[1]);
+  $nomor_senjata = $list['nomor_senjata'];
 
-  $senjata = $conn->query("SELECT * FROM senjata WHERE nama_barang='$nama_barang' AND jenis = '$jenis'");
+  $senjata = $conn->query("SELECT * FROM senjata WHERE nomor_senjata='$nomor_senjata'");
   $dt_barang = $senjata->fetch_assoc();
-
-
-  $sisa = ($dt_barang['jumlah'] - $list['jumlah_pinjam']);
+  $sisa = 0;
 
   $update_dt_brg = $conn->query("UPDATE senjata SET jumlah = '$sisa' WHERE id_barang = '$dt_barang[id_barang]'");
 
-  $tgl_peminjaman = date('Y-m-d');
-  $tgl_pengembalian = $_POST['tgl-pengembalian'];
-  $peminjam = $_POST['peminjam'];
-  $id_user = $_POST['id_user'];
+  $tgl_ambil = date('d-m-Y');
+  $id_user = $dt_barang['id_barang'];
 
-  $peminjaman = $conn->query("INSERT INTO peminjaman VALUES ('', '$id_user', '$tgl_peminjaman', '$tgl_pengembalian')");
-
-  $detail_pinjam = $conn->query("INSERT INTO detail_pinjam VALUES ('', '$list[id_barang]', '$list[jumlah_pinjam]', '$peminjam', (SELECT id_peminjaman FROM peminjaman ORDER BY id_peminjaman DESC LIMIT 1))");
-
+  $peminjaman = $conn->query("INSERT INTO peminjaman VALUES ('', '$id_user', '$tgl_ambil')");
   $update_dt_brg = $conn->query("UPDATE senjata SET jumlah = '$sisa' WHERE id_barang = '$dt_barang[id_barang]'");
  } 
  unset($_SESSION['list_peminjaman']);

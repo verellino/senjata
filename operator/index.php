@@ -9,7 +9,7 @@ if (!isset($_SESSION['id_user'])) {
 require_once 'proses/proses-peminjaman.php';
 
 // Mengelurkan seluruh data barang yang ada di Database
-$sql = "SELECT * FROM senjata";
+$sql = "SELECT * FROM senjata LEFT JOIN taruna ON senjata.id_user = taruna.id_user";
 $query = $conn->query($sql);
 $data_barang  = $query->fetch_all(MYSQLI_ASSOC);
 
@@ -17,5 +17,5 @@ $data_barang  = $query->fetch_all(MYSQLI_ASSOC);
 $no = 1;
 
 require_once 'includes/header.php';
-require_once 'includes/peminjaman.php';
+require_once 'includes/ambil_kembali.php';
 require_once 'includes/footer.php';
