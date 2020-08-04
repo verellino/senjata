@@ -1,15 +1,14 @@
 <div class="container mt-5">
  <div class="card">
-  <div class="card-header">
-   Petugas : <?= $_SESSION['name'] ?>
-  </div>
   <div class="card-body">
+  <h2>Pengembalian Senjata</h2>
+    <hr>
    <div class="row">
     <div class="col-md-6">
      <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="mt-3" autocomplete="on">
       <div class="form-group">
-       <label for="id_barang">Nomor Senjata</label>
-       <input list="barang" name="nomor_senjata" placeholder="Pilih Nomor Senjata" class="form-control" required>
+       <label for="id_barang"><h5>Nomor Senjata</h5></label>
+       <input id="barcodeInput" list="barang" name="nomor_senjata" placeholder="Pilih Nomor Senjata" class="form-control" autofocus required>
        <datalist id="barang">
    
         <?php 
@@ -29,10 +28,10 @@
     </div>
     
     <div class="col-md-6">
-     <h3>Detail Pengambilan</h3>
+     <h4>Detail Pengembalian</h4>
      <hr>
      <?php 
-     $tanggal_waktu = date('Y-m-d');
+     $tanggal_waktu = date('d-m-Y');
      if (isset($_POST['nomor_senjata'])) {
       $nomor_senjata = $_POST['nomor_senjata'];
       $jumlah_pinjam  = 1;
@@ -59,15 +58,11 @@
 
        // jika list peminjaman kosong
        if($index == -1) {
-        if($data_barang['jumlah'] < $jumlah_pinjam) {
-         echo '<div class="alert alert-danger" role="alert"><b>'.$nama_barang.'</b> hanya tersedia <b>'.$data_barang['jumlah'].'</b></div>';
-        } else {
          $_SESSION['list_peminjaman'][] = [
                         'id_barang' => $data_barang['id_barang'], 
                         'nomor_senjata' => $data_barang['nomor_senjata'], 
                         'Name' => $data_barang['Name']
                        ];
-        }
        }
       }
 
@@ -112,10 +107,8 @@
 
       </table>
 
-     <form method="post" action="data-barang.php">
-      <input type="hidden" name="id_user" value="<?= $_SESSION['id_user']; ?>">
-      <input type="hidden" name="nomor_senjata" value="<?= $list[$i]['nomor_senjata']; ?>">
-      <button type="submit" class="btn btn-success btn-block" name="submit">Proses</button>
+     <form method="POST" action="proses/proses-kembali.php">
+      <button type="submit" name="submit" class="btn btn-success btn-block">Proses</button>
      </form>
 
     </div>
@@ -123,3 +116,8 @@
   </div>
  </div>
 </div>
+<script>
+  window.onload = function() {
+      var input = document.getElementById("barcodeInput").focus();
+  }
+</script>

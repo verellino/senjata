@@ -1,44 +1,33 @@
 <div class="container mt-5">
+ <div class="card">
+   <div class="card-body">    
+    <h2>Data Pengambilan</h2>
+    <hr>
+    <div class="clearfix"></div>
 
- <div class="row">
-  <div class="col">
-   <h2>Data Pengambilan</h2>
-  </div>
- </div> 
+    <table class="table table-sm mt-3">
+    <thead>
+    <tr>
+        <th>Nomor Senjata</th>
+        <th>Tgl. Ambil</th>
+        <th>Nama Taruna</th>
+    </tr>
+    </thead>
+    <tbody>
 
- <div class="clearfix"></div>
+    <?php foreach ($data_peminjaman as $data) :
+    ?>
 
- <table class="table table-sm mt-3">
-  <thead>
-   <tr>
-    <th>No</th>
-    <th>Nama Senjata</th>
-    <th>Jenis</th>
-    <th>Jumlah Pinjam</th>
-    <th>Tgl. Pinjam</th>
-    <th>Tgl. Kembali</th>
-    <th>Peminjam</th>
-    <th>Petugas</th>
-   </tr>
-  </thead>
-  <tbody>
+    <tr>
+        <td><?= $data['No_Senjata']; ?></td>
+        <td><?= $data['tgl_ambil']; ?></td>
+        <td><?= $data['Name']; ?></td>
+    </tr>
 
-   <?php foreach ($data_peminjaman as $data) :
-   ?>
+    <?php endforeach; ?>
 
-   <tr>
-    <td><?= $no++; ?></td>
-    <td><?= $data['nomor_senjata']; ?></td>
-    <td><?= $data['jenis']; ?></td>
-    <td><?= $data['jumlah']; ?></td>
-    <td><?= $data['tgl_pinjam']; ?></td>
-    <td><?= $data['tgl_kembali']; ?></td>
-    <td><?= $data['peminjam']; ?></td>
-    <td><?= $data['nama']; ?></td>
-   </tr>
-
-   <?php endforeach; ?>
-
-  </tbody>
- </table>
+    </tbody>
+    </table>
+    </div>
+ </div>
 </div>

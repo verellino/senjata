@@ -1,5 +1,6 @@
 <div class="container mt-5">
- 
+ <div class="card">
+  <div class="card-body"> 
   <h2>Data Senjata</h2>
   <hr>
 
@@ -33,4 +34,6 @@
     </tbody>
   </table>
 
+  </div>
+ </div>
 </div>

@@ -26,4 +26,4 @@
     <button type="submit" class="btn btn-primary float-right">Tambah Anggota</button>
   </form>
 
-</divAnggota
+</div>

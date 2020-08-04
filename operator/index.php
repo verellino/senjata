@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="assets/css/main.css">
 <?php
 session_start();
 require_once '../config/db.php';
@@ -17,5 +18,5 @@ $data_barang  = $query->fetch_all(MYSQLI_ASSOC);
 $no = 1;
 
 require_once 'includes/header.php';
-require_once 'includes/ambil_kembali.php';
+require_once 'includes/dashboard.php';
 require_once 'includes/footer.php';

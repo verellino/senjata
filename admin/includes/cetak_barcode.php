@@ -34,5 +34,9 @@ while ($row = $view->fetch_array()) {
         </tr>
         <?php endforeach; ?>
     </table>
+    <script>
+            window.print();
+      </script>
 </body>
+
 </html>

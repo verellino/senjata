@@ -15,11 +15,10 @@ if(isset($_POST['submit']) && isset($_SESSION['list_peminjaman'])) {
 
   $senjata = $conn->query("SELECT * FROM senjata WHERE nomor_senjata='$nomor_senjata'");
   $dt_barang = $senjata->fetch_assoc();
-  $tgl_ambil = date('Y-m-d');
   $id_barang = $dt_barang['id_barang'];
 
-  $peminjaman = $conn->query("INSERT INTO peminjaman VALUES ('', '$id_barang', '$tgl_ambil')");
-  $update_dt_brg = $conn->query("UPDATE senjata SET jumlah = 0 WHERE id_barang = '$id_barang'");
+  $peminjaman = $conn->query("DELETE FROM peminjaman WHERE id_user='$id_barang'");
+  $update_dt_brg = $conn->query("UPDATE senjata SET jumlah = 1 WHERE id_barang = '$id_barang'");
  } 
  unset($_SESSION['list_peminjaman']);
  header('Location: ../data-peminjaman.php');

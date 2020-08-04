@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="assets/css/main.css">
 <?php
 session_start();
 require_once '../config/db.php';
@@ -7,7 +8,7 @@ if (!isset($_SESSION['id_user'])) {
 }
 
 // ambil data
-$sql = "SELECT * FROM detail_pinjam";
+$sql = "SELECT * FROM peminjaman LEFT JOIN taruna ON peminjaman.id_user = taruna.id_user ";
 $query = $conn->query($sql);
 $data_peminjaman = $query->fetch_all(MYSQLI_ASSOC);
 
