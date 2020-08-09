@@ -7,7 +7,7 @@ if (!isset($_SESSION['id_user'])) {
 }
 
 // ambil data
-$sql = "SELECT * FROM peminjaman AS d INNER JOIN senjata AS b ON d.id_user = b.id_user";
+$sql = "SELECT * FROM peminjaman AS d INNER JOIN taruna AS b ON d.id_user = b.id_user INNER JOIN senjata ON d.id_user = senjata.id_user";
 $query = $conn->query($sql);
 $data_peminjaman = $query->fetch_all(MYSQLI_ASSOC);
 

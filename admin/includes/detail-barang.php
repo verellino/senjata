@@ -1,7 +1,7 @@
 
 <div class="container mt-5">
  
- <h2>Detail Data Senjata</h2>
+ <h2 class="text-white">Detail Data Senjata</h2>
  <hr>
 
  <a href="data-barang.php" class="btn btn-primary btn-sm float-left">← Kembali</a>

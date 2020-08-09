@@ -1,5 +1,5 @@
-<div class="container mt-5">
- 
+<div class="card container mt-5">
+ <div class="card-body"> 
   <h2>Ubah Data Senjata</h2>
   <hr>
 
@@ -57,4 +57,5 @@
       </div>
     </div>
   </form>
+ </div>
 </div>

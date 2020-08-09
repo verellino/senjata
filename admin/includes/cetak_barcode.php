@@ -22,13 +22,21 @@ while ($row = $view->fetch_array()) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Print Barcode</title>
 </head>
+<style>
+    .tbl {
+        text-align: center;
+    }
+    .brcd {
+        width: 4cm;
+    }
+</style>
 <body>
-    <table width="100%" align="center" border="1" cellpadding="5" cellspacing="2">
+    <table class="tbl" width="100%" align="center" border="1" cellpadding="5" cellspacing="2">
         <?php foreach ($data as $row): ?>
         <tr>
             <?php foreach ($row as $item): ?>
             <td>
-                <img alt="<?=$item?>" src="../library/barcode.php?text=<?=$item?>&print=true"/>
+                <img class="brcd" alt="<?=$item?>" src="../library/barcode.php?text=<?=$item?>&print=true"/>
             </td>
             <?php endforeach; ?>
         </tr>

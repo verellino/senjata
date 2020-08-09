@@ -7,7 +7,9 @@ if (!isset($_SESSION['id_user'])) {
 }
 
 // Mengelurkan seluruh data barang yang ada di Database
-$sql = "SELECT * FROM senjata LEFT JOIN taruna ON senjata.id_user = taruna.id_user";
+$new = "UPDATE senjata INNER JOIN taruna ON senjata.id_barang = taruna.id_user SET  senjata.nomor_senjata = taruna.No_Senjata";
+$query = $conn->query($new);
+$sql = "SELECT * FROM senjata RIGHT JOIN taruna ON senjata.nomor_senjata = taruna.No_Senjata";
 $query = $conn->query($sql);
 $data_barang = $query->fetch_all(MYSQLI_ASSOC);
 

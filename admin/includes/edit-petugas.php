@@ -1,5 +1,5 @@
-<div class="container mt-5">
- 
+<div class="card container mt-5">
+ <div class="card-body"> 
   <h2>Edit Data Anggota</h2>
   <hr>
  
@@ -32,4 +32,5 @@
     <button type="submit" class="btn btn-primary float-right">Edit Anggota</button>
   </form>
 
+ </div>
 </div>

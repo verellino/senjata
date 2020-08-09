@@ -11,6 +11,9 @@
         <th>Nomor Senjata</th>
         <th>Tgl. Ambil</th>
         <th>Nama Taruna</th>
+        <th>Waktu Ambil</th>
+        <th>Waktu Kembali</th>
+        <th>Status</th>
     </tr>
     </thead>
     <tbody>
@@ -22,6 +25,18 @@
         <td><?= $data['No_Senjata']; ?></td>
         <td><?= $data['tgl_ambil']; ?></td>
         <td><?= $data['Name']; ?></td>
+        <td><?= $data['jam_ambil']; ?></td>
+        <td><?= $data['jam_kembali']; ?></td>
+        <td>
+        <?php 
+          $jmlh = $data['jumlah'];
+            
+          if ($jmlh == '0') {
+            echo "Sedang diambil";
+          } else {
+            echo "Sudah kembali"; 
+          }  
+          ?></td>
     </tr>
 
     <?php endforeach; ?>

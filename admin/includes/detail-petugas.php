@@ -1,6 +1,6 @@
 <div class="container mt-5">
  
-  <h2>Detail Anggota</h2>
+  <h2 class="text-white">Detail Anggota</h2>
   <hr>
  
   <a href="data-petugas.php" class="btn btn-primary btn-sm float-left">← Kembali</a>
