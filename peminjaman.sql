@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2020 at 01:24 PM
+-- Generation Time: Aug 10, 2020 at 07:26 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -31,7 +31,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `peminjaman` (
   `id_peminjaman` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `tgl_ambil` date NOT NULL
+  `tgl_ambil` date NOT NULL,
+  `jam_ambil` time DEFAULT NULL,
+  `jam_kembali` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -52,7 +54,7 @@ ALTER TABLE `peminjaman`
 -- AUTO_INCREMENT for table `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

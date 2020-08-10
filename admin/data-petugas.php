@@ -26,6 +26,7 @@ if (!isset($_GET['p'])) {
     
     $hapus = $conn->query("DELETE FROM taruna WHERE id_user='".$_GET['id']."'");
     if ($hapus) {
+      $conn->query("DELETE FROM senjata WHERE id_user='".$_GET['id']."'");
       header('Location: data-petugas.php');
     } else {
       header('Location: data-petugas.php');
