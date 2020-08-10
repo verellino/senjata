@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-body">
     <div class="d-flex justify-content-center mt-5">
-    <img src="../assets/logo-aau.png" class="mr-2" width="300" height="300">\
+    <img src="../assets/logo-aau.png" class="mr-2" width="300" height="300">
     </div>
     <h1 class="text-center mt-5 mb-5">Aplikasi Pendataan Senjata Akademi Angkatan Udara</h1>
     <div class="row text-center">

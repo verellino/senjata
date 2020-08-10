@@ -8,6 +8,7 @@
     <table class="table table-sm mt-3">
     <thead>
     <tr>
+        <th>No.</th>
         <th>Nomor Senjata</th>
         <th>Tgl. Ambil</th>
         <th>Nama Taruna</th>
@@ -22,6 +23,7 @@
     ?>
 
     <tr>
+        <td><?= $no++; ?></td>
         <td><?= $data['No_Senjata']; ?></td>
         <td><?= $data['tgl_ambil']; ?></td>
         <td><?= $data['Name']; ?></td>
