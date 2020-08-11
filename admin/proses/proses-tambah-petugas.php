@@ -17,6 +17,7 @@ if (!isset($name, $pangkat, $no_ak, $no_senjata)) {
 $snjt = $conn->query("INSERT INTO `senjata`(`id_barang`, `id_user`, `nomor_senjata`, `jumlah`) VALUES ('','','$no_senjata','1')");
 $sql = "INSERT INTO taruna VALUES ('', '$name', '$pangkat', '$no_ak', '$no_senjata')";
 $query = $conn->query($sql);
+$new = $conn->query("UPDATE senjata, taruna SET senjata.id_user = taruna.id_user WHERE  senjata.nomor_senjata = taruna.No_Senjata");
 
 if ($query) {
   header('Location: ../data-petugas.php');
