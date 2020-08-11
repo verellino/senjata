@@ -31,7 +31,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `senjata` (
   `id_barang` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `keterangan` set('DIAMBIL' NOT NULL,
   `nomor_senjata` int(10) NOT NULL,
   `jumlah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
